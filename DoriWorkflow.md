@@ -49,7 +49,8 @@ $ conda activate kraken_env
 
 load kraken database - DO AS SLURM
 ```bash
-kraken2-build --standard --db kraken_db
+# make directory for database
+$ mkdir /home/dsr84/kraken/kraken2_db
 ```
 
 
