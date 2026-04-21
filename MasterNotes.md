@@ -54,6 +54,11 @@ $ mkdir /home/dsr84/kraken/kraken2_db
 ```
 load kraken2 database with kraken2_db.sbatch script attached
 
+unzip kraken2 database
+```bash
+$ tar -xvzf k2_standard_20240112.tar.gz
+```
+
 how to run an interactive compute node
 ```bash
 srun pty --bash
