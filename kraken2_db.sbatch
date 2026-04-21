@@ -7,7 +7,7 @@
 #SBATCH --time=4:00:00
 #SBATCH --mem=16G
 
-cd /home/dsr84/kraken
+cd /home/dsr84/kraken/kraken2_db
 
 echo "Downloading Kraken2 database..."
 
