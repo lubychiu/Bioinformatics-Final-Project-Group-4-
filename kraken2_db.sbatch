@@ -1,27 +1,15 @@
 #!/bin/bash
-#SBATCH --job-name=kraken2_db_build
-#SBATCH --output=/home/dsr84/junk/%x.o%j
-#SBATCH --error=/home/dsr84/junk/%x.e%j
-#SBATCH --mail-type=END,FAIL
-#SBATCH --mail-user=dsr84@georgetown.edu
-#SBATCH --time=24:00:00
-#SBATCH --cpus-per-task=16
-#SBATCH --mem=64G
+#SBATCH --job-name=kraken_db_download
+#SBATCH --output=/home/yc1201/final_project/kraken2-%j.out
+#SBATCH --error=/home/yc1201/final_project/kraken2-%j.err
+#SBATCH --time=4:00:00
+#SBATCH --mem=16G
 
-# Load conda (important on many clusters)
+cd /home/yc1201/final_project
 
-source ~/.bashrc
+echo "Downloading Kraken2 database..."
 
-# Activate your environment
+wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20240112.tar.gz
 
-conda activate kraken_env
-
-# Move to a directory with enough space (VERY important)
-
-cd /home/dsr84/kraken/kraken2_db
-
-# Build the standard Kraken2 database
-
-kraken2-build --standard 
---threads 16 
---db kraken_db
+echo "Unzipping database..."
+tar -xvzf k2_standard_20240112.tar.gz
