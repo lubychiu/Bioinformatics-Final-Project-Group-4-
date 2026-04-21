@@ -34,6 +34,14 @@ $ module load bowtie2/2.5.4
 # bowtie build step to set up database 
 $ bowtie2-build ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna human_index
 ```
+bowtie2 was run through the script attached
+
 # 4/21
 
 ## Kraken2 to identify microbes present 
+```bash
+$ conda create -n kraken_env -c bioconda -c conda-forge kraken2
+$ conda activate kraken_env
+$ conda install -c bioconda kraken2
+$ module load kraken2
+```
