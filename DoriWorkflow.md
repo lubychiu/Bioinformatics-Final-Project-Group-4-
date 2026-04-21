@@ -39,9 +39,21 @@ bowtie2 was run through the script attached
 # 4/21
 
 ## Kraken2 to identify microbes present 
+
+create kraken environment
 ```bash
 $ conda create -n kraken_env -c bioconda -c conda-forge kraken2
-$ conda activate kraken_env
 $ conda install -c bioconda kraken2
-$ module load kraken2
+$ conda activate kraken_env
+```
+
+load kraken database - DO AS SLURM
+```bash
+kraken2-build --standard --db kraken_db
+```
+
+
+how to run an interactive compute node
+```bash
+srun pty --bash
 ```
