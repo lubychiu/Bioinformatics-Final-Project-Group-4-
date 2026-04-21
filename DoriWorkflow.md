@@ -34,4 +34,6 @@ $ module load bowtie2/2.5.4
 # bowtie build step to set up database 
 $ bowtie2-build ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna human_index
 ```
+# 4/21
 
+## Kraken2 to identify microbes present 
