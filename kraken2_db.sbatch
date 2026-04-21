@@ -1,11 +1,13 @@
 #!/bin/bash
 #SBATCH --job-name=kraken_db_download
-#SBATCH --output=/home/yc1201/final_project/kraken2-%j.out
-#SBATCH --error=/home/yc1201/final_project/kraken2-%j.err
+#SBATCH --mail-type=END,FAIL
+#SBATCH --mail-user=dsr84@georgetown.edu
+#SBATCH --output=/home/dsr84/kraken/kraken2-%j.out
+#SBATCH --error=/home/dsr84/kraken/kraken2-%j.err
 #SBATCH --time=4:00:00
 #SBATCH --mem=16G
 
-cd /home/yc1201/final_project
+cd /home/dsr84/kraken
 
 echo "Downloading Kraken2 database..."
 
