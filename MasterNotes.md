@@ -34,7 +34,7 @@ $ module load bowtie2/2.5.4
 # bowtie build step to set up database 
 $ bowtie2-build ncbi_dataset/data/GCF_000001405.40/GCF_000001405.40_GRCh38.p14_genomic.fna human_index
 ```
-bowtie2 was run through the script attached
+run bowtie2 through bowtie2.sbatch script attached
 
 # 4/21
 
@@ -47,12 +47,12 @@ $ conda install -c bioconda kraken2
 $ conda activate kraken_env
 ```
 
-load kraken database - DO AS SLURM
+load kraken database 
 ```bash
 # make directory for database
 $ mkdir /home/dsr84/kraken/kraken2_db
 ```
-
+load kraken2 database with kraken2_db.sbatch script attached
 
 how to run an interactive compute node
 ```bash
