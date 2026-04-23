@@ -64,3 +64,5 @@ srun pty --bash
 ## Kraken2 to identify microbes present 
 
 run kraken2 with kraken2.sbatch script attached
+
+The original kraken2 databse was too large, and kraken jobs kept failing. Updated script shows the link to the 8G version of the database. Once that runs, we will proceed with kraken2 analysis on our samples
