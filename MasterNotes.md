@@ -38,7 +38,7 @@ run bowtie2 through bowtie2.sbatch script attached
 
 # 4/21
 
-## Kraken2 to identify microbes present 
+## Download kraken2 database 
 
 create kraken environment
 ```bash
@@ -58,3 +58,9 @@ how to run an interactive compute node
 ```bash
 srun pty --bash
 ```
+
+# 4/23
+
+## Kraken2 to identify microbes present 
+
+run kraken2 with kraken2.sbatch script attached
