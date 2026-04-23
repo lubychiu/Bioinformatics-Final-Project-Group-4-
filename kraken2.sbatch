@@ -6,7 +6,7 @@
 #SBATCH --error=/home/dsr84/kraken/kraken2-run-%j.err
 #SBATCH --time=08:00:00
 #SBATCH --cpus-per-task=16
-#SBATCH --mem=64G
+#SBATCH --mem=128G
 
 # Load conda
 
