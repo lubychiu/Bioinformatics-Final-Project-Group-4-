@@ -11,7 +11,7 @@ cd /home/dsr84/kraken/kraken2_db
 
 echo "Downloading Kraken2 database..."
 
-wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_20240112.tar.gz
+wget https://genome-idx.s3.amazonaws.com/kraken/k2_standard_08_GB_20260226.tar.gz
 
 echo "Unzipping database..."
 tar -xvzf k2_standard_20240112.tar.gz
