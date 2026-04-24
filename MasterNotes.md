@@ -74,5 +74,10 @@ The output of kraken is a [SAMPLENAME].kraken and a [SAMPLENAME].report file. Bo
 
 run braken with braken.sbatch script attached
 
-if braken db did not download with kraken, use braken_db.sbatch to download into the same directory as kraken2_db before proceeding. 
+if braken db did not download with kraken:
+```bash
+$ conda activate kraken_env
+$ conda install -c bioconda bracken
+```
+
 
