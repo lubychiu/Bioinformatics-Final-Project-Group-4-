@@ -66,3 +66,11 @@ srun pty --bash
 run kraken2 with kraken2.sbatch script attached
 
 The original kraken2 databse was too large, and kraken jobs kept failing. Updated script shows the link to the 8G version of the database. Once that runs, we will proceed with kraken2 analysis on our samples
+
+The output of kraken is a [SAMPLENAME].kraken and a [SAMPLENAME].report file. Both of these files can be left in the output directory as-is to run braken. 
+
+# 4/24
+## Braken to identify functional pathways 
+
+run braken with braken.sbatch script attached
+
