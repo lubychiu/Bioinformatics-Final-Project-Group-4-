@@ -1,7 +1,7 @@
 #!/bin/bash
 #SBATCH --job-name=bracken_build
-#SBATCH --output=/home/dsr84/bracken/bracken-build-%j.out
-#SBATCH --error=/home/dsr84/bracken/bracken-build-%j.err
+#SBATCH --output=/home/dsr84/bracken/bracken_build-%j.out
+#SBATCH --error=/home/dsr84/bracken/bracken_build-%j.err
 #SBATCH --mail-type=END,FAIL
 #SBATCH --mail-user=dsr84@georgetown.edu
 #SBATCH --time=12:00:00
