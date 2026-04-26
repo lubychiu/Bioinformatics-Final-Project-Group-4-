@@ -82,4 +82,8 @@ Output: [SAMPLENAME].bracken
 we aim to convert our bracken abundance data into a heatmap demonstrating which species are enriched in CRC v. Normal fecal samples. 
 we have two samples from CRC and two from normal 
 
-
+download files to local computer to be accessed by RSutdio. Mac can't open .bracken files itself, but RStudio will be able to read them as-is. 
+```bash
+# FROM LOCAL COMPUTER
+gcloud compute scp m12-controller:/home/dsr84/final.data/CNR0930222.bracken ~/Downloads/
+```
