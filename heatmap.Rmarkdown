@@ -1,0 +1,83 @@
+---
+title: "Genomics.Final"
+output: html_document
+date: "2026-04-26"
+---
+
+load libraries 
+```{r}
+library(dplyr)
+library(tibble)
+library(pheatmap)
+```
+
+import data
+```{r}
+setwd("~/Downloads")
+sample189 <- read.delim("CNR0930189.bracken")
+sample220 <- read.delim("CNR0930220.bracken")
+sample221 <- read.delim("CNR0930221.bracken")
+sample222 <- read.delim("CNR0930222.bracken")
+```
+
+create a counts table organized by name
+1. create new dataframes with only the taxa names and read fractions 
+```{r}
+s189 <- sample189[, c("name", "fraction_total_reads")]
+s220 <- sample220[, c("name", "fraction_total_reads")]
+s221 <- sample221[, c("name", "fraction_total_reads")]
+s222 <- sample222[, c("name", "fraction_total_reads")]
+```
+
+2. rename for easy merging
+```{r}
+colnames(s189) <- c("name", "189")
+colnames(s220) <- c("name", "220")
+colnames(s221) <- c("name", "221")
+colnames(s222) <- c("name", "222")
+```
+
+3. merge dataframes
+```{r}
+fracs <- full_join(s189, s220, by = "name") %>%
+  full_join(s221, by = "name") %>%
+  full_join(s222, by = "name")
+# turn NA to 0
+fracs[is.na(fracs)] <- 0
+```
+
+heatmap
+1. convert fracs into heatmap matrix
+```{r}
+matrix <- fracs %>%
+  column_to_rownames("name") %>%
+  as.matrix()
+
+# convert matrix data to log form
+mat_log <- log10(matrix + 1e-6)
+```
+
+2. keep only the most abundant taxa
+```{r}
+# sorts to show the most abundant species by row sums
+top_taxa <- names(sort(rowSums(mat_log), decreasing = TRUE))[1:30]
+
+# creates new dataframe 
+mat_top <- mat_log[top_taxa, ]
+```
+
+3. create heatmap
+```{r}
+annotation <- data.frame(Group = c("Control", "CRC", "CRC", "Control"))
+rownames(annotation) <- colnames(mat_top)
+
+heatmap <- pheatmap(
+  mat_top,
+  annotation_col = annotation,
+  cluster_rows = TRUE,
+  cluster_cols = TRUE,
+  scale = "row"
+)
+```
+
+significance testing
