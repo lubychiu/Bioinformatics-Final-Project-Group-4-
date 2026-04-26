@@ -88,4 +88,4 @@ download files to local computer to be accessed by RSutdio. Mac can't open .brac
 gcloud compute scp m12-controller:/home/dsr84/final.data/CNR0930222.bracken ~/Downloads/
 ```
 viewing the bracken file in R, you can see columns:
-name, taxonomy_id, taxonomy_lvl, kraken_assigned_reads, added_reads, new_est_reads, fraction_total_reads
+name, taxonomy_id, taxonomy_lvl (S = Species, G = Genus), kraken_assigned_reads (reads assigned by kraken), added_reads (reads assigned by bracken), new_est_reads (final estimated reads considering kraken and braken), fraction_total_reads
