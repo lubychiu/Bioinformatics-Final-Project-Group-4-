@@ -70,10 +70,16 @@ The original kraken2 databse was too large, and kraken jobs kept failing. Update
 The output of kraken is a [SAMPLENAME].kraken and a [SAMPLENAME].report file. Both of these files can be left in the output directory as-is to run braken. 
 
 # 4/24
-## Braken to further identify genomic taxa
+## Braken for taxonomic abundance estimation
 
 run braken with braken.sbatch script attached
 
 Output: [SAMPLENAME].bracken
+
+# 4/26
+## Data analysis and figure generation
+
+we aim to convert our bracken abundance data into a heatmap demonstrating which species are enriched in CRC v. Normal fecal samples. 
+we have two samples from CRC and two from normal 
 
 
