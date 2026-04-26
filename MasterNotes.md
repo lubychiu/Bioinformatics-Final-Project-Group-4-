@@ -70,7 +70,7 @@ The original kraken2 databse was too large, and kraken jobs kept failing. Update
 The output of kraken is a [SAMPLENAME].kraken and a [SAMPLENAME].report file. Both of these files can be left in the output directory as-is to run braken. 
 
 # 4/24
-## Braken to identify functional pathways 
+## Braken to further identify genomic taxa
 
 run braken with braken.sbatch script attached
 
