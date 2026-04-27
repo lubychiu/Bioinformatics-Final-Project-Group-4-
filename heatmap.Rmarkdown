@@ -62,7 +62,7 @@ mat_log <- log10(matrix + 1e-6)
 # sorts to show the most abundant species by row sums
 top_taxa <- names(sort(rowSums(mat_log), decreasing = TRUE))[1:30]
 
-# creates new dataframe 
+# create new matrix including only the top taxa
 mat_top <- mat_log[top_taxa, ]
 ```
 
@@ -76,8 +76,29 @@ heatmap <- pheatmap(
   annotation_col = annotation,
   cluster_rows = TRUE,
   cluster_cols = TRUE,
-  scale = "row"
+  scale = "row",
+         fontsize_row = 8,
+         fontsize_col = 10,
+         main = "Taxonomic relative abundance"
 )
 ```
 
 significance testing
+```{r}
+# group assignment using matrix 
+# 220 and 221 are CRC, 189 and 222 are controls
+# order of columns is 189, 220, 221, 222
+group <- c("Control", "CRC", "CRC", "Control")
+
+# performing the test 
+mat_top_p <- as.data.frame(mat_top)
+
+mat_top_p$pvals <- apply(mat_top, 1, function(x) {
+  wilcox.test(x[group == "CRC"], x[group == "Control"])$p.value
+})
+
+# adjusting p value 
+mat_top_p$pvals_adj <- p.adjust(mat_top_p$pvals, method = "BH")
+```
+
+no taxa were found to be significantly enriched in either category
