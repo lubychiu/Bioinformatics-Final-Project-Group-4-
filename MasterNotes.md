@@ -94,3 +94,4 @@ we used fraction_total_reads to compare the relative abundances of taxa between 
 figure generation and statistical analysis were performed according to the R markdown file heatmap.Rmarkdown
 no taxa were found to be significantly enriched in the CRC or the control group
 for ease of reading, only the 30 most abundant taxa were displayed 
+this does limit our conclusions, as the figure is comparing the most abundant, not necessarily the most different. however, statistical testing was completed over all taxa and no difference was found. 
