@@ -89,3 +89,8 @@ gcloud compute scp m12-controller:/home/dsr84/final.data/CNR0930222.bracken ~/Do
 ```
 viewing the bracken file in R, you can see columns:
 name, taxonomy_id, taxonomy_lvl (S = Species, G = Genus), kraken_assigned_reads (reads assigned by kraken), added_reads (reads assigned by bracken), new_est_reads (final estimated reads considering kraken and braken), fraction_total_reads
+
+we used fraction_total_reads to compare the relative abundances of taxa between samples
+figure generation and statistical analysis were performed according to the R markdown file heatmap.Rmarkdown
+no taxa were found to be significantly enriched in the CRC or the control group
+for ease of reading, only the 30 most abundant taxa were displayed 
