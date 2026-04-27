@@ -13,9 +13,7 @@ Download and view .html
 # FROM LOCAL COMPUTER 
 $ gcloud compute scp m12-controller:/home/dsr84/fastqc_out/CNR0930220_1_fastqc.html ~/Downloads/
 ```
-Raw data files were of exceptional quality. Therefore, there is no need for trimmomatic 
-
-An example fastq file can be found here: file:///Users/dori/Downloads/CNR0930220_1_fastqc.html 
+Raw data files were of exceptional quality. Therefore, there is no need for additional trimming with trimmomatic 
 
 ## Bowtie to filter out human reads
 downloaded ncbi_dataset from this link: https://www.ncbi.nlm.nih.gov/datasets/genome/GCF_000001405.40/ 
