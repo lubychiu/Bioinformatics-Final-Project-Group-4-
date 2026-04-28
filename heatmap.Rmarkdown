@@ -9,6 +9,9 @@ load libraries
 library(dplyr)
 library(tibble)
 library(pheatmap)
+library(tidyverse)
+library(vegan)
+library(ape)
 ```
 
 import data
@@ -102,3 +105,45 @@ mat_top_p$pvals_adj <- p.adjust(mat_top_p$pvals, method = "BH")
 ```
 
 no taxa were found to be significantly enriched in either category
+
+Beta Diversity plot: 
+```{r}
+mat_b <- fracs %>%
+  column_to_rownames("name") %>%
+  as.matrix()
+
+# transpose so samples = rows
+mat_b <- t(mat_b)   
+
+# Compute Bray Curtis distance
+dist_mat <- vegdist(mat_b, method = "bray")
+
+# Compute PCoA (conversion to 2D plot)
+pcoa <- pcoa(dist_mat)
+
+# Create a plotting dataframe 
+df <- data.frame(
+  Sample = rownames(mat_b),
+  PC1 = pcoa$vectors[,1],
+  PC2 = pcoa$vectors[,2],
+  Group = c("Control", "CRC", "CRC", "Control")
+)
+
+# Plot
+ggplot(df, aes(x = PC1, y = PC2, color = Group, label = Sample)) +
+  geom_point(size = 4) +
+  geom_text(vjust = -1) +
+  theme_minimal() +
+  scale_color_manual(values = c("CRC" = "salmon", "Control" = "aquamarine2")) +
+  theme(
+  legend.text = element_text(size = 8),
+  legend.title = element_text(size = 9),
+  legend.spacing.y = unit(5, "cm")
+) + 
+  scale_y_continuous(expand = expansion(mult = c(0.1, 0.2))) + 
+  labs(
+    title = "Beta Diversity of CRC v. Normal Samples",
+    x = "PC1",
+    y = "PC2"
+  )
+```
