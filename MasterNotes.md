@@ -97,3 +97,5 @@ this does limit our conclusions, as the figure is comparing the most abundant, n
 
 CRC patients were very similar on the most abundant CRC taxa (Parabacteriodes, Ruminococcus, Alitstipes)
 In the Beta Diversity plot, CRC samples clustered directly on top of each other 
+
+figures are generated using the figures.Rmarkdown file attached
