@@ -1,0 +1,12 @@
+This project aims to characterize and compare microbial communities in colorectal cancer (CRC) and healthy fecal samples using data from "Colorectal cancer microbiome programs DNA methylation of host cells by affecting methyl donor metabolism" by Liu et. al. 
+Liu found key taxa differences between CRC patient fecal samples and healthy fecal samples. This short workflow aims to replicate their workflow to see if we get similar results. 
+Raw sequencing reads were first assessed for quality using FastQC. Results showed that "raw" reads already had a high level of quality, so there was no need for trimming.
+Human reads were then removed by aligning sequences to the GRCh38 reference genome using Bowtie2, ensuring downstream analyses focused only on microbial content. 
+Taxonomic classification was performed with Kraken2 using a reduced-size database due to computational constraints, followed by Bracken to estimate species-level abundances.
+
+The resulting abundance data were analyzed in R to generate heatmaps and beta diversity plots comparing two CRC and two control samples. 
+Relative abundance (fraction_total_reads) was used to evaluate microbial composition, with statistical testing conducted across all detected taxa. 
+No taxa were found to be significantly enriched between CRC and control groups. This is likely due to the small sample size of this project (n = 2 CRC, 2 control). 
+Notably, CRC samples showed highly similar microbial profiles, clustering closely in beta diversity analysis and sharing dominant taxa such as Parabacteroides, Ruminococcus, and Alistipes, which have been associated with CRC in previous literature. 
+
+MasterNotes.md details the workflow of this project. Relevant .sbatch and R.md scripts can be found linked in this project. 
